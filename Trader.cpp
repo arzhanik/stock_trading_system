@@ -68,6 +68,17 @@ void Trader::by_stock(OrderBook& book, std::string order_type, std::string compa
 }
 
 
+void Trader::cell_stock(OrderBook& book, std::string company, int count) {
+	if (trader_property[company] >= count) {
+		trader_balance += (book.get_stock(company))->get_stock_value() / 100 * count;
+		trader_property[company] -= count;
+		std::cout << trader_name << "\tSuccessed celling.\n";
+                return;
+        }
+        std::cout << trader_name << "\tCelling not successed.\n";
+}
+
+
 void Trader::print_trader_info() const {
         std::cout << "Trader name: " << trader_name << "\t Trader balance: " <<
                 trader_balance << "\tTrader property: \n";

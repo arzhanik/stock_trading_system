@@ -13,6 +13,7 @@ public:
 	bool valid_trader(const std::string& name, const std::string& id);
 	void add_balance(double cash);
 	void by_stock(OrderBook& book, std::string order_type, std::string company, int count);
+	void cell_stock(OrderBook& book, std::string company, int count);
 	void print_trader_info() const;
     	void start_trading_thread(OrderBook& book);
     	void stop_trading_thread();
